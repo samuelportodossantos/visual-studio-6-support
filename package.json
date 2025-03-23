@@ -1,0 +1,125 @@
+{
+  "name": "visual-studio-6-support",
+  "displayName": "Visual Studio 6 Support",
+  "description": "An extension to read .dsp projects",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onView:vs6ProjectExplorer",
+    "onCommand:visual-studio-6-support.openDSPProject",
+    "workspaceContains:*.dsp"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "visual-studio-6-support.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "visual-studio-6-support.openDSPProject",
+        "title": "Open Visual Studio 6 Project",
+        "category": "VS6",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "visual-studio-6-support.refreshProjectView",
+        "title": "Refresh Project View",
+        "category": "VS6",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "visual-studio-6-support.setKoreanEncoding",
+        "title": "Set Korean File Encoding (CP949)",
+        "category": "VS6"
+      }
+    ],
+    "configuration": {
+      "title": "Visual Studio 6 Support",
+      "properties": {
+        "visual-studio-6-support.fileEncoding": {
+          "type": "string",
+          "default": "utf8",
+          "enum": ["utf8", "cp949", "euc-kr"],
+          "enumDescriptions": [
+            "UTF-8 encoding",
+            "CP949 (Korean) encoding",
+            "EUC-KR (Korean) encoding"
+          ],
+          "description": "The encoding to use when reading project files and directory names"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vs6-explorer",
+          "title": "VS6 Explorer",
+          "icon": "$(file-code)"
+        }
+      ]
+    },
+    "views": {
+      "vs6-explorer": [
+        {
+          "id": "vs6ProjectExplorer",
+          "name": "VS6 Project Files"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "vs6ProjectExplorer",
+        "contents": "No Visual Studio 6 project is currently open. [Open VS6 Project](command:visual-studio-6-support.openDSPProject)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "visual-studio-6-support.openDSPProject",
+          "when": "view == vs6ProjectExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "visual-studio-6-support.refreshProjectView",
+          "when": "view == vs6ProjectExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "visual-studio-6-support.setKoreanEncoding",
+          "when": "view == vs6ProjectExplorer",
+          "group": "2_encoding"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "vb6",
+        "extensions": [".frm", ".bas", ".cls"],
+        "aliases": ["Visual Basic 6", "VB6"]
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.21.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
