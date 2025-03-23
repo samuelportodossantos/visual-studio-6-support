@@ -1,65 +1,48 @@
-# visual-studio-6-support README
+# Visual Studio 6 Project Support
 
-This is the README for your extension "visual-studio-6-support". After writing up a brief description, we recommend including the following sections.
+This extension provides support for working with Visual Studio 6 projects (.dsp files) in Visual Studio Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **VS6 Project Explorer**: View and navigate Visual Studio 6 project files in a dedicated explorer view
+- **Project Structure**: See your project's folders and files organized according to the DSP project structure
+- **File Opening**: Easily open project files directly from the explorer view
+- **Encoding Support**: Special support for Korean encodings (CP949/EUC-KR) for properly displaying folder and file names
 
-For example if there is an image subfolder under your extension project workspace:
+<!-- Screenshot will be added soon -->
 
-\!\[feature X\]\(images/feature-x.png\)
+## Usage
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Click on the VS6 Explorer icon in the activity bar
+2. Use the "Open Visual Studio 6 Project" button to select a .dsp file
+3. Navigate through the project structure to find and open files
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `visual-studio-6-support.fileEncoding`: Choose the encoding for reading project files and directory names
+  * Options: `utf8` (default), `cp949` (Korean), `euc-kr` (Korean)
+
+## Commands
+
+* `VS6: Open Visual Studio 6 Project`: Open a .dsp project file
+* `VS6: Refresh Project View`: Refresh the current project view
+* `VS6: Set Korean File Encoding (CP949)`: Change the encoding for Korean file names
+
+## Requirements
+
+- Visual Studio Code 1.98.0 or higher
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Limited support for .mak files and other VS6 project types
+- No build integration yet
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Initial release with basic DSP file support
+- Project explorer view
+- Korean encoding support

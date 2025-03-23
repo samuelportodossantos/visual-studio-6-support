@@ -2,9 +2,11 @@
   "name": "visual-studio-6-support",
   "displayName": "Visual Studio 6 Support",
   "description": "An extension to read .dsp projects",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "samuelportodossantos",
+  "license": "MIT",
   "engines": {
-    "vscode": "^1.98.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Other",
@@ -16,6 +18,10 @@
     "workspaceContains:*.dsp"
   ],
   "main": "./extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelportodossantos/visual-studio-6-support.git"
+  },
   "contributes": {
     "commands": [
       {
@@ -115,7 +121,7 @@
     "iconv-lite": "^0.6.3"
   },
   "devDependencies": {
-    "@types/vscode": "^1.98.0",
+    "@types/vscode": "^1.74.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
     "eslint": "^9.21.0",
